@@ -29,6 +29,6 @@ Declaration of all services can be found into `./docker-compose.yml` file.
 Just execute into your terminal next commands:
 
 ```
-$ git clone https://github.com/Victor1995fed/docker-xsd-validator.git ./xsd-validator && cd $_
+$ git clone --recursive https://github.com/Victor1995fed/xsd-validator-docker.git ./xsd-validator && cd $_
 $ make init
 ```
