@@ -1,0 +1,50 @@
+version: '3.5'
+
+networks:
+  devel:
+    driver: bridge
+
+# List services
+services:
+  nginx:
+    # last version stable from nginx
+    image: nginx:latest
+    # ports
+    ports:
+      - "8082:80"
+    networks:
+      - devel
+
+    # folders from mounted
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./src:/var/www/app
+      - ./logs/nginx:/var/log/nginx
+
+
+  db:
+      # last version stable from mysql
+    image: mysql:latest
+    networks:
+      - devel
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: xsd
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: pass1
+    ports:
+      - "3307:3306"
+  php:
+    # image php-fpm
+    build: ./images/php
+    networks:
+      - devel
+    volumes:
+      - ./src:/var/www/app
+      - ./config/app/.env:/var/www/app/.env
+      - ./logs/laravel:/var/www/app/storage/logs
+      - ./data/upload:/var/www/app/upload
+      - ./config/fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./config/php/php.ini:/usr/local/etc/php/conf.d/40-custom.ini

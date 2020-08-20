@@ -1,0 +1,12 @@
+[submodule "src/xsd-validator"]
+	path = src/xsd-validator
+	url = https://github.com/Victor1995fed/xsd-validator.git
+[submodule "xsd-validator"]
+	path = xsd-validator
+	url = https://github.com/Victor1995fed/xsd-validator.git
+[submodule "tt"]
+	path = tt
+	url = https://github.com/Victor1995fed/xsd-validator.git
+[submodule "src"]
+	path = src
+	url = https://github.com/Victor1995fed/xsd-validator.git
