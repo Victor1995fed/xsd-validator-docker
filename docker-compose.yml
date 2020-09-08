@@ -41,6 +41,8 @@ services:
     build: ./images/php
     networks:
       - devel
+    environment:
+      XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1 remote_autostart=off  remote_port=9008"
     volumes:
       - ./src:/var/www/app
       - ./config/app/.env:/var/www/app/.env

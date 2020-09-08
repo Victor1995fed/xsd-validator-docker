@@ -19,7 +19,9 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
         libzip-dev \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/  \
-    && docker-php-ext-install -j$(nproc)  mbstring mysqli pdo_mysql zip gd
+    && docker-php-ext-install -j$(nproc)  mbstring mysqli pdo_mysql zip gd \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
