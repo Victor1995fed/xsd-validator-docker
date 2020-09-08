@@ -1,3 +1,4 @@
 .idea
 #/data/db/*
 #/data/upload/*
+.phpunit.result.cache
