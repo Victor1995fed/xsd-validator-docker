@@ -32,3 +32,5 @@ Just execute into your terminal next commands:
 $ git clone --recursive https://github.com/Victor1995fed/xsd-validator-docker.git ./xsd-validator && cd $_
 $ make init
 ```
+
+- Done! [localhost:8082](localhost:8082)
